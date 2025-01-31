@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}User List{% endblock %}
+
+{% block content %}
+{% for user in usersList %}
+<ul>
+    <li>{{user.name}} - {% if user.age >= 18 %}Adult{% else %}Minor{% endif %}</li>
+</ul>
+{% endfor %}
+{% endblock %}
