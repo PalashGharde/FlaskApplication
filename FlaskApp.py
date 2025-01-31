@@ -1,7 +1,13 @@
+from datetime import datetime
+
 from flask import Flask, render_template, request, url_for, redirect
+
+from FlaskApplication.Form import HealthForm
 
 #Create Instance of Flask
 app = Flask(__name__)
+app.secret_key = 'FlaskAppSecretKey'
+
 
 # homepage route
 @app.route('/')
@@ -12,10 +18,16 @@ def homepage():
 
 @app.route('/form', methods = ['POST','GET'])
 def form():
-    if request.method == "POST":
-        return redirect(url_for('dashboard'))
+    healthform = HealthForm()
+    if healthform.validate_on_submit():
+        date = healthform.date.data
+        exercise = healthform.exercise.data
+        meditation = healthform.meditation.data
+        sleep = healthform.sleep.data
 
-    return render_template('form.html')
+        return render_template('dashboard.html')
+
+    return render_template('form.html', form=healthform)
 
 @app.route('/dashboard')
 def dashboard():
