@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import IntegerField, DateField, SubmitField
 from wtforms.validators import InputRequired, NumberRange
 
+# Creates Health form with important fields
 class HealthForm(FlaskForm):
     date = DateField('Date', format='%Y-%m-%d')
     exercise = IntegerField('Workout session (minutes)',validators=[InputRequired(),NumberRange()])
