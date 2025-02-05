@@ -1,8 +1,9 @@
+
 # Flask Health Tracker Application
 
 This is my first Flask application, built to monitor health by tracking exercise, meditation, and sleep times. The project follows a Flask-based architecture with SQL database integration and data visualization using Chart.js.
 
-#Features
+## Features
 
 User Data Entry: Log daily health data including workout duration, meditation time, and sleep hours.
 
@@ -12,7 +13,7 @@ Database Integration: Uses SQLite to store user data.
 
 Templating Engine: Jinja2 is used for rendering dynamic HTML pages.
 
-#Technologies Used
+## Technologies Used
 
 Flask (Backend framework)
 
@@ -27,17 +28,18 @@ HTML, CSS, JavaScript (Frontend development)
 
 
 
-Dashboard
+## Dashboard
 
 Displays exercise, meditation, and sleep data in a graphical format.
-
+![Dashboard Screenshot]("C:\Users\palas\OneDrive\Pictures\Screenshots\Screenshot 2025-02-05 153834.png")
 
 Data Entry Form
 
 Users can log their health data daily.
+![Dashboard Screenshot]("C:\Users\palas\OneDrive\Pictures\Screenshots\Screenshot 2025-02-05 153822.png")
 
 
-Future Enhancements
+## Future Enhancements
 
 User authentication (login/logout system)
 
@@ -45,6 +47,6 @@ More health metrics (diet, water intake, etc.)
 
 Export data as CSV or PDF
 
-Acknowledgment
+## Acknowledgment
 
 This project was built following an online Flask course.
