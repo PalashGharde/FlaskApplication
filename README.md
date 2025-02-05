@@ -31,15 +31,15 @@ HTML, CSS, JavaScript (Frontend development)
 ## Dashboard
 
 Displays exercise, meditation, and sleep data in a graphical format.
+![Dashboard Screenshot](Screenshot%202025-02-05%20153834.png)
 
-![Dashboard Screenshot](Screenshot%202025-02-05%20153822.png)
 
 
 Data Entry Form
 
 Users can log their health data daily.
+![Dashboard Screenshot](Screenshot%202025-02-05%20153822.png)
 
-![Dashboard Screenshot](Screenshot%202025-02-05%20153834.png)
 
 
 ## Future Enhancements
