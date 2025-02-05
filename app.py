@@ -34,7 +34,6 @@ def __repr__(self):
 def homepage():
     return render_template('homepage.html')
 
-
 @app.route('/signup', methods = ['POST','GET'])
 def signup():
     signupForm = SignupForm()
@@ -84,8 +83,12 @@ def form():
 # dashboard route
 @app.route('/dashboard')
 def dashboard():
-    all_data = HealthData.query.all()
-    return render_template('dashboard.html', all_data = all_data)
+    data = HealthData.query.all()
+    dates = [entry.date.strftime('%Y-%m-%d') for entry in data]
+    exercise = [entry.exercise for entry in data]
+    meditation = [entry.meditation for entry in data]
+    sleep = [entry.sleep for entry in data]
+    return render_template('dashboard.html', dates = dates, exercise = exercise, meditation=meditation, sleep=sleep)
 
 if __name__ == "__main__":
     app.run(debug=True)
