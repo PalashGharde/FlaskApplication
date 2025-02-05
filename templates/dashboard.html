@@ -10,6 +10,7 @@
             <div class="card-body">
                 <h5 class="card-title">Exercise Data</h5>
                 <!-- Chart for exercise data -->
+                <canvas id="ExerciseChart"></canvas>
                 <p>Exercise data visualization will be here.</p>
                 <ul>
                     {% for data in all_data %}
@@ -24,6 +25,7 @@
             <div class="card-body">
                 <h5 class="card-title">Meditation Data</h5>
                 <!-- Chart for meditation data -->
+                <canvas id="MeditationChart"></canvas>
                 <p>Meditation data visualization will be here.</p>
                 <ul>
                     {% for data in all_data %}
@@ -38,6 +40,7 @@
             <div class="card-body">
                 <h5 class="card-title">Sleep Data</h5>
                 <!-- Chart for sleep data -->
+                <canvas id="SleepChart"></canvas>
                 <p>Sleep data visualization will be here.</p>
                 <ul>
                     {% for data in all_data %}
@@ -48,4 +51,86 @@
         </div>
     </div>
 </div>
+
+<!-- Chart script -->
+<script>
+
+    const dates = {{ dates|tojson }}
+    const exercise = {{ exercise|tojson }}
+    const meditation = {{ meditation|tojson }}
+    const sleep = {{ sleep|tojson }}
+
+    // context of Canvas
+    const exerciseCtx = document.getElementById('ExerciseChart').getContext('2d');
+    const meditationCtx = document.getElementById('MeditationChart').getContext('2d');
+    const sleepCtx = document.getElementById('SleepChart').getContext('2d');
+
+    // Chart Instance
+    const ExerciseChart = new Chart(exerciseCtx,{
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Exercise Minutes',
+                data: exercise,
+                backgroundColor: 'rgba(75,192,192,0.2)',
+                borderColor: 'rgba(75,192,192,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y:  {
+                    beginAtZero: true
+                }
+            }
+        }
+        }
+    )
+
+    const MeditationChart = new Chart(meditationCtx,{
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Meditation Minutes',
+                data: meditation,
+                backgroundColor: 'rgba(75,192,192,0.2)',
+                borderColor: 'rgba(75,192,192,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y:  {
+                    beginAtZero: true
+                }
+            }
+        }
+        }
+    )
+
+    const SleepChart = new Chart(sleepCtx,{
+        type: 'bar',
+        data: {
+            labels: dates,
+            datasets: [{
+                label: 'Sleep Hr',
+                data: sleep,
+                backgroundColor: 'rgba(75,192,192,0.2)',
+                borderColor: 'rgba(75,192,192,1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y:  {
+                    beginAtZero: true
+                }
+            }
+        }
+        }
+    )
+
+  </script>
 {% endblock %}
